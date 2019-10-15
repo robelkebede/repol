@@ -1,0 +1,33 @@
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.svm import SVR
+from sklearn.multioutput import MultiOutputRegressor
+import numpy as np
+import nltk
+
+def preprocesses():
+    data = np.load("fana_data_700_new.npy")
+
+    features = data[:,0]
+    target = data[:,1:9]
+
+    print(features.shape)
+    print(target.shape)
+    
+
+def train():
+
+    X = np.random.random((10,3))
+    y = np.random.random((10,2))
+    X2 = np.random.random((7,3))
+
+    svr = SVR(gamma="auto")
+    regr = MultiOutputRegressor(svr)
+
+    regr.fit(X,y)
+    regr.predict(X2)
+
+def main():
+    preprocesses()
+
+if __name__ == "__main__":
+    main()

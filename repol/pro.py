@@ -2,11 +2,12 @@
 import pandas as pd
 from translate import eng_to_amh
 import numpy as np
+from tqdm import tqdm
 
 fana_data = pd.read_csv("fana_data.csv")
 the_data = fana_data.filter(["text","reactions","likes","ahah","love","wow","sigh","grrr","comments"]).fillna(0)
 
-#TODO add one additional feature (num of COMMENTS)
+
 
 #k to thousends
 def k2t(d):
@@ -20,17 +21,23 @@ def k2t(d):
 
 def processes_data(d):
     final_data = []
-    for index,row in d.iterrows():
-        
-        if row["text"] != 0:
-            _,translated_text = eng_to_amh(row["text"])
+    for index,row in tqdm(d.iterrows()):
+        if index>700:
+            if row["text"] != 0:
+                _,translated_text = eng_to_amh(row["text"][0:2000])
+                
+                final_data.append([translated_text,k2t(row["reactions"]),k2t(row["likes"]),
+                    k2t(row["ahah"]),k2t(row["love"]),k2t(row["wow"]),
+                    k2t(row["sigh"]),k2t(row["grrr"]),k2t(row["comments"])])
+                print("INDEX ",index)
+
+                if index == 750:
+                    np.save("fana_news_data_{}".format(index),final_data)
+                    print("DATA_SAVED")
+
             
-            final_data.append([translated_text,k2t(row["reactions"]),k2t(row["likes"]),
-                k2t(row["ahah"]),k2t(row["love"]),k2t(row["wow"]),
-                k2t(row["sigh"]),k2t(row["grrr"]),k2t(row["comments"])])
-            print(translated_text)
-        else:
-            print("PASS")
+            else:
+                print("PASS")
 
 
     return final_data
@@ -39,20 +46,19 @@ def processes_data(d):
 
 def final_data():
     data = np.array(processes_data(the_data))
-    np.save("fana_data_test222.npy",data)
-    print("DATA SAVED")
-
-
+    
 def main():
+
+    #print(the_data)
     final_data()
-    #processes_data(the_data)
-    #print(k2t(234))
-    #data = np.load("fana_data_test.npy",allow_pickle=True)
-    #d = k_to_thousend(data)
+
+    #print(the_data["text"][2][0:2001])
+
+    #data = np.load("fana_news_data.npy",allow_pickle=True)
+    #print(data)
     
 
 
 if __name__ =="__main__":
     main()
 
-#delta,data = eng_to_amh(d)

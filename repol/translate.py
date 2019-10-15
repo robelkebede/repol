@@ -17,7 +17,7 @@ def eng_to_amh(text):
     return delta,data.text
 
 def main():
-    delta,data = eng_to_amh('0')
+    delta,data = eng_to_amh('ዜና')
 
     print([data,delta])
 
