@@ -50,9 +50,7 @@ def main():
 
     #print(the_data)
     final_data()
-
     #print(the_data["text"][2][0:2001])
-
     #data = np.load("fana_news_data.npy",allow_pickle=True)
     #print(data)
     

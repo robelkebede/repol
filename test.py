@@ -40,7 +40,7 @@ def data_preprocess_float():
     print("SAVED")
 
 
-data = np.load("700.npy",allow_pickle=True)
+data = np.load("./data/700.npy",allow_pickle=True)
 
-print(data[0][500])
-print(data[1][500])
+print(data[0][420])
+print(data[1][420])

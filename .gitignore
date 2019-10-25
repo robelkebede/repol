@@ -20,6 +20,7 @@ tags
 [._]*.un~
 
 numpy_test/
+test.py
 
 __pycache__/
 
