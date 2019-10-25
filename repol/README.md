@@ -1,2 +1,0 @@
-
-predicting poletical sentiment

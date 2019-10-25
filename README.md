@@ -1,2 +1,2 @@
-# repol
-reaction to poletical news post
+
+predicting poletical sentiment
