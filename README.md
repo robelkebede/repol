@@ -3,7 +3,7 @@
 
 I trained a multi-output linear regression model that predicts Ethiopian Facebook users reaction to a political news post 
 
-writing a web crawler for facebook is hard so i used https://github.com/rugantio/fbcrawl
+I scraped facebook using fbcrawl  (https://github.com/rugantio/fbcrawl)
 
 I scraped data from a Facebook Ethiopian news pages
 
