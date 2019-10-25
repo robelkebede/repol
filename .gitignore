@@ -19,8 +19,8 @@ tags
 # Persistent undo
 [._]*.un~
 
-*.pkl
-*.npy
+numpy_test/
+
 __pycache__/
 
 .~*
