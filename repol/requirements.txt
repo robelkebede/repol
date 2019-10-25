@@ -3,3 +3,6 @@
 pandas
 numpy
 gogletrans
+sklearn
+nltk
+

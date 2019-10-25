@@ -1,5 +1,7 @@
 
 import numpy as np
+import matplotlib.pyplot as plt
+from train import preprocesses
 """
 data0 = np.load("fana_news_data_50.npy")
 data1 = np.load("fana_news_data_100.npy")
@@ -18,8 +20,27 @@ data = np.concatenate([data0,data1,data2,data3,data4,data5,data6,data7,data8,dat
         data10,data11,data12]) 
 
 """
-data = np.load("fana_data_700_new.npy")
+def data_preprocess_float():
+
+    data = np.load("fana_data_700_new.npy")
+
+    feature = data[:,0]
+    target = data[:,1:9]
+
+    final_target = []
+
+    for t in target:
+        me = [float(x) for x in t]
+        final_target.append(me)
+
+    #data = np.array([feature,target]).reshape(feature.shape[0],8)
+    data = np.array([feature,final_target])
+
+    np.save("700.npy",data)
+    print("SAVED")
 
 
-print(data.shape)
+data = np.load("700.npy",allow_pickle=True)
 
+print(data[0][500])
+print(data[1][500])

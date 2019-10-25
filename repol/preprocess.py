@@ -8,7 +8,6 @@ fana_data = pd.read_csv("fana_data.csv")
 the_data = fana_data.filter(["text","reactions","likes","ahah","love","wow","sigh","grrr","comments"]).fillna(0)
 
 
-
 #k to thousends
 def k2t(d):
     d =str(d)
@@ -22,7 +21,7 @@ def k2t(d):
 def processes_data(d):
     final_data = []
     for index,row in tqdm(d.iterrows()):
-        if index>700:
+        if index>987:
             if row["text"] != 0:
                 _,translated_text = eng_to_amh(row["text"][0:2000])
                 
@@ -31,7 +30,7 @@ def processes_data(d):
                     k2t(row["sigh"]),k2t(row["grrr"]),k2t(row["comments"])])
                 print("INDEX ",index)
 
-                if index == 750:
+                if index == 1100:
                     np.save("fana_news_data_{}".format(index),final_data)
                     print("DATA_SAVED")
 
