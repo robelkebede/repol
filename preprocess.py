@@ -4,11 +4,11 @@ from translate import eng_to_amh
 import numpy as np
 from tqdm import tqdm
 
-fana_data = pd.read_csv("fana_data.csv")
+fana_data = pd.read_csv("./dataset/fana_data.csv")
 the_data = fana_data.filter(["text","reactions","likes","ahah","love","wow","sigh","grrr","comments"]).fillna(0)
 
 
-#k to thousends
+#k to thousends eg (2.5k to 2500)
 def k2t(d):
     d =str(d)
     if d[-1] == "K":
@@ -20,8 +20,11 @@ def k2t(d):
 
 def processes_data(d):
     final_data = []
+    start = 987
+    end = 1100
     for index,row in tqdm(d.iterrows()):
-        if index>987:
+        #processes data in segment becases googletrans crash after processing 50-40 text
+        if index>start:
             if row["text"] != 0:
                 _,translated_text = eng_to_amh(row["text"][0:2000])
                 
@@ -30,14 +33,13 @@ def processes_data(d):
                     k2t(row["sigh"]),k2t(row["grrr"]),k2t(row["comments"])])
                 print("INDEX ",index)
 
-                if index == 1100:
+                if index == end:
                     np.save("fana_news_data_{}".format(index),final_data)
                     print("DATA_SAVED")
 
-            
             else:
+                #pass NULL data
                 print("PASS")
-
 
     return final_data
 
@@ -47,14 +49,7 @@ def final_data():
     data = np.array(processes_data(the_data))
     
 def main():
-
-    #print(the_data)
     final_data()
-    #print(the_data["text"][2][0:2001])
-    #data = np.load("fana_news_data.npy",allow_pickle=True)
-    #print(data)
-    
-
 
 if __name__ =="__main__":
     main()

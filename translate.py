@@ -11,14 +11,13 @@ def eng_to_amh(text):
     init = time.time()
     data = translator.translate(text, dest='en')
     fin = time.time()
-
+    
     delta = fin-init #time took
 
     return delta,data.text
 
 def main():
     delta,data = eng_to_amh('ዜና')
-
     print([data,delta])
 
 if __name__ == '__main__':
