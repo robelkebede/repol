@@ -1,8 +1,11 @@
 
-
 pandas
 numpy
 gogletrans
 sklearn
 nltk
-
+matplotlib
+pandas
+joblib
+pickle
+tqdm
