@@ -65,7 +65,8 @@ def train():
     
     predict = network.predict(x_test)
 
-    print(r2_score(y_test,predict,multioutput="raw_values"))
+    #print(r2_score(y_test,predict,multioutput="raw_values"))
+    print(network.score(x_test, y_test))
 
 
 
