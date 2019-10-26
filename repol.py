@@ -17,7 +17,7 @@ def word_processer(text):
     sent = nltk.sent_tokenize(text)
 
     cv = CountVectorizer()
-    fit_text = cv.fit(data[:,0])
+    fit_text = cv.fit(data[:,0])                                                       #why
               
     data = cv.transform(sent)
     return data
@@ -39,7 +39,7 @@ def main():
     with open(file_name, 'rb') as file:
       Pickled_LR_Model = pickle.load(file)
      
-    score = Pickled_LR_Model.score(x_test, y_test)
+    #score = Pickled_LR_Model.score(x_test, y_test)
     pre = Pickled_LR_Model.predict(word) 
 
     objects = ('reaction', 'likes', 'ahah', 'Love', 'Wow', 'Sigh','Grrr','Comments')
@@ -48,7 +48,7 @@ def main():
     
     print(y_pos)
     print(x_pos)
-    print("score ",score)
+    print("score ",pre)
 
     
     bar =plt.bar(y_pos, x_pos, align='center', alpha=0.5)
@@ -62,7 +62,7 @@ def main():
     bar[7].set_color('b')
     plt.xticks(y_pos, objects)
     plt.ylabel('num_reaction')
-    plt.title('Social Media Reactions. accuracy is {}'.format(round(score*100),4))
+    #plt.title('Social Media Reactions. accuracy is {}'.format(round(pre*100),4))
 
     plt.show() 
 
