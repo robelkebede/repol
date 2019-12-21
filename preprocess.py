@@ -23,7 +23,7 @@ def processes_data(d):
     start = 987
     end = 1100
     for index,row in tqdm(d.iterrows()):
-        #processes data in segment becases googletrans crash after processing 50-40 text
+        #processes data in segment because googletrans crash after processing 50-40 text
         if index>start:
             if row["text"] != 0:
                 _,translated_text = eng_to_amh(row["text"][0:2000])
@@ -38,7 +38,6 @@ def processes_data(d):
                     print("DATA_SAVED")
 
             else:
-                #pass NULL data
                 print("PASS")
 
     return final_data
@@ -47,6 +46,7 @@ def processes_data(d):
 
 def final_data():
     data = np.array(processes_data(the_data))
+    #save data.npy
     
 def main():
     final_data()

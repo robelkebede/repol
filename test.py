@@ -42,5 +42,5 @@ def data_preprocess_float():
 
 data = np.load("./data/700.npy",allow_pickle=True)
 
-print(data[0][420])
-print(data[1][420])
+print(data[0][100:200])
+print(data[1][100:200])

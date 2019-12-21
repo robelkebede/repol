@@ -4,6 +4,7 @@ from sklearn.svm import SVR
 from sklearn.multioutput import MultiOutputRegressor
 import numpy as np
 import nltk
+import matplotlib.pyplot as plt
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 from nltk.corpus import wordnet
 from nltk.corpus import stopwords
@@ -59,14 +60,21 @@ def train():
 
     network.fit(x_train,y_train)
 
+    #save model
+    """ 
     file_name = "neural_model_v2.pkl"
     with open(file_name, 'wb') as file:
-        pickle.dump(network, file)
+        pickle.dump(network, file) """
     
     predict = network.predict(x_test)
 
-    print(r2_score(y_test,predict,multioutput="raw_values"))
+    y = network.loss_curve_
+    x = [i for i in range(len(y))]
 
+    plt.plot(x,y,color="red")
+    plt.show()
+
+    print(r2_score(y_test,predict,multioutput="raw_values"))
 
 
 def main():

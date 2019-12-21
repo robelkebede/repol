@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import nltk
 import joblib
 import numpy as np
@@ -32,6 +34,10 @@ def main():
 
     args = parser.parse_args()
 
+
+    _,x,y = preprocesses()
+    x_train,x_test,y_train,y_test = train_test_split(x,y)
+
     word = word_processer(args.text)
 
     file_name = "./model/neural_model_v2.pkl"
@@ -48,7 +54,7 @@ def main():
     
     print(y_pos)
     print(x_pos)
-    print("score ",score)
+    #print("score ",score)
 
     
     bar =plt.bar(y_pos, x_pos, align='center', alpha=0.5)
