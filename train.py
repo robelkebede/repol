@@ -68,11 +68,16 @@ def train():
     
     predict = network.predict(x_test)
 
+<<<<<<< HEAD
     y = network.loss_curve_
     x = [i for i in range(len(y))]
 
     plt.plot(x,y,color="red")
     plt.show()
+=======
+    #print(r2_score(y_test,predict,multioutput="raw_values"))
+    print(network.score(x_test, y_test))
+>>>>>>> 19eab487e2973af40eac7c66d7be2afa5ca1e3c7
 
     print(r2_score(y_test,predict,multioutput="raw_values"))
 

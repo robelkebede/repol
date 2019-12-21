@@ -11,8 +11,8 @@
 
 ## Limitations 
 
-*The data that is used to train this model is not enough.
-*This is a Big Data Problem.
+* The data that is used to train this model is not enough.
+* This is a Big Data Problem.
 
 ## Requirements
 

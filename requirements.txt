@@ -1,10 +1,9 @@
 
 pandas
 numpy
-gogletrans
+googletrans
 sklearn
 nltk
 matplotlib
-pandas
 joblib
 tqdm
