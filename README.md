@@ -1,13 +1,13 @@
 
 # Repol
 
-*I trained a multi-output linear regression model that predicts Ethiopian Facebook users reaction to a political news
+* I trained a multi-output linear regression model that predicts Ethiopian Facebook users reaction to a political news
 
-*I scraped facebook using fbcrawl  (https://github.com/rugantio/fbcrawl)
+* I scraped facebook using fbcrawl  (https://github.com/rugantio/fbcrawl)
 
-*I scraped data FBC(Fana broadcasting conrporate) news Page
+* I scraped data FBC(Fana broadcasting conrporate) news Page
 
-*I used googletrans a free unofficial google trainslate library to convert from Amahric to English
+* I used googletrans a free unofficial google trainslate library to convert from Amahric to English
 
 ## Limitations 
 
