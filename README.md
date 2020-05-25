@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 ``` bash
 cd ./repol
-python repol.py --text="Prime Minster Dr. Abiy Ahmed, launched the ambitious Green Legacy campaign"
+python repol.py --text="launched the ambitious Green Legacy campaign"
 ```
 
 ![Alt text](Figure_1.png?raw=true "Reactions")
