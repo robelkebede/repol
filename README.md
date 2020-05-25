@@ -11,7 +11,7 @@
 
 ## Limitations 
 
-* The data that is used to train this model is not enough.
+* Very small Dataset
 
 
 ## Requirements
