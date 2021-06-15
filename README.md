@@ -12,7 +12,10 @@
 ## Limitations 
 
 * Very small Dataset
-
+* Future Me: <font color="red"> THIS REPO HAS A LOT OF PROBLEMS</font>
+* not normalized data 
+* bad word representation 
+* poor translation 
 
 ## Requirements
 
